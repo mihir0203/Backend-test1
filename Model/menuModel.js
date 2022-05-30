@@ -3,6 +3,7 @@ const validator = require("validator");
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
+    required: true,
   },
   availablility: {
     type: String,
@@ -25,7 +26,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     timestamps: true,
   },
-}); 
+});
 
 const Menu = mongoose.model("Menu", userSchema);
 module.exports = Menu;

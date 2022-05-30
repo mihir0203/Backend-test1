@@ -5,12 +5,10 @@ const categorySchema = new mongoose.Schema({
   name: {
     type: String,
   },
-  menu:{
+  menu: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Menu',
-    required: true
-  }
-  
-})
+    ref: "Menu",
+  },
+});
 const Dish = mongoose.model("Dish", categorySchema);
 module.exports = Dish;

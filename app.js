@@ -4,9 +4,11 @@ const dotenv = require("dotenv");
 dotenv.config({ path: "./config.env" });
 
 const app = express();
-const AppError = require('./utils/appError');
-const globalErrorHandler = require('./Controller/errorController');
+const AppError = require("./utils/appError");
+const globalErrorHandler = require("./Controller/errorController");
 const userRouter = require("./routes/userRoutes");
+const menuRouter = require("./routes/menuRoutes");
+// const userRouter = require("./routes/userRoutes");
 
 app.use(express.json({ limit: "10kb" }));
 
@@ -15,6 +17,7 @@ app.use(express.json({ limit: "10kb" }));
 // });
 
 app.use("/api/v1/users", userRouter);
+app.use("/api/v1/menus", menuRouter);
 app.use(globalErrorHandler);
 
 const DB = process.env.DATABASE_LOCAL;
