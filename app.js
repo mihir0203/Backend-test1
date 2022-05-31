@@ -8,16 +8,20 @@ const AppError = require("./utils/appError");
 const globalErrorHandler = require("./Controller/errorController");
 const userRouter = require("./routes/userRoutes");
 const menuRouter = require("./routes/menuRoutes");
-// const userRouter = require("./routes/userRoutes");
+const categoryRouter = require("./routes/categoryRoutes");
 
 app.use(express.json({ limit: "10kb" }));
-
+app.use((req, res, next) => {
+  // console.log(req.headers);
+  next();
+});
 // app.use("/mi", (req, res, next) => {
 //   res.send("hello world");
 // });
 
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/menus", menuRouter);
+app.use("/api/v1/categorys", categoryRouter);
 app.use(globalErrorHandler);
 
 const DB = process.env.DATABASE_LOCAL;

@@ -10,16 +10,8 @@ const dishSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  category: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Category",
-  },
   isAvailable: {
     type: Boolean,
-  },
-  menu: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Menu",
   },
   allergy: [
     {
@@ -37,6 +29,14 @@ const dishSchema = new mongoose.Schema({
       default: "none",
     },
   ],
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Category",
+  },
+  menu: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Menu",
+  },
 });
 
 const Dish = mongoose.model("Dish", dishSchema);

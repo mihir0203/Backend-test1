@@ -4,11 +4,12 @@ const validator = require("validator");
 const categorySchema = new mongoose.Schema({
   name: {
     type: String,
+    required: true,
   },
   menu: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Menu",
   },
 });
-const Dish = mongoose.model("Dish", categorySchema);
-module.exports = Dish;
+const Category = mongoose.model("Category", categorySchema);
+module.exports = Category;

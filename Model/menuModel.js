@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
-const userSchema = new mongoose.Schema({
+const menuSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -18,15 +18,15 @@ const userSchema = new mongoose.Schema({
     ],
     default: "Monday",
   },
-  timeFrom: {
+  timefrom: {
     type: String,
-    timestamps: true,
+    required: true,
   },
   timeto: {
     type: String,
-    timestamps: true,
+    required: true,
   },
 });
 
-const Menu = mongoose.model("Menu", userSchema);
+const Menu = mongoose.model("Menu", menuSchema);
 module.exports = Menu;

@@ -1,15 +1,15 @@
 const Menu = require("./../Model/Menumodel");
 const AppError = require("./../utils/appError");
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcryptjs");
+const authController = require("./authController");
 exports.createmenu = async (req, res, next) => {
   try {
     const newMenu = await Menu.create({
       name: req.body.name,
       availablility: req.body.availablility,
-      timeFrom: req.body.timefrom,
+      timefrom: req.body.timefrom,
       timeto: req.body.timeto,
     });
+    console.log(req.body);
     res.status(201).json({
       status: "success",
       data: {
